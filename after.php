@@ -118,36 +118,8 @@
 
 <!--
 
-
-
-O processo a ser adotado seria:
-
------------------------------- OK -----------------------------------------
-- PARA SALVAR ARQUIVO
-A) usuário faz upload do arquivo;
-C) registro do arquivo é salvo no banco de dados
-D) arquivo é guardado na pasta adequada
-E) usuário solicita download do arquivo;
-F) sistema salva em tabela tb_arquivo_exportado as informações do arquivo temporário, com chave estrangeira para tb_arquivo e tb_usuario;
-G) os passos 1,2 e 3 descritos anteriormente são realizados sobre o arquivo temporário, mantendo os atributos estendidos do arquivo original e salvando os novos atributos com um prefixo “exportacao_”;
-H) sistema devolve o arquivo temporário ao usuário;
-
-
-
-- PARA VALIDAR O ARQUIVO NO FUTURO
-   * usuários faz upload do arquivo;
-I) sistema gera o hash do arquivo e compara com o hash salvo nos atributos estendidos cujo nome começa com “exportacao_” 
-E) se os hashs baterem, retorna mensagem indicando que a assinatura é VÁLIDA e informa os dados de quem e quando assinou.
-SE os hashs não baterem, informa que a assinatura é INVÁLIDA OU ARQUIVO NÃO ASSINADO;
-
-
-
-
-
-
-
-
-    //comando para pegar os atributos estendidos para testar apenas 
+    //para testar apenas: 
+    //comando para pegar os atributos estendidos 
     foreach ($metadados_arquivo_expotacao as $chave => $valor){
         $filenamePath = $pdf_path;
         $attributeName = $chave;
